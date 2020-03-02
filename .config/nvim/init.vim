@@ -142,33 +142,32 @@ function! GitBranch()
     endif
 endfunction
 
-hi User1 guifg=#a3be8c guibg=#4c566a
-hi User2 guifg=#88c0d0 guibg=#4c566a
-hi User3 guibg=#d08770 guifg=#4c566a
-hi User4 guifg=#2e3440 guibg=#d08770
-hi User5 guifg=#d08770 guibg=#bf616a
-hi User6 guifg=#2e3440 guibg=#bf616a
-" set statusline=%{FugitiveStatusline()}\ 
+hi User1 guifg=#2e3440 guibg=#81a1c1
+hi User2 guifg=#81a1c1 guibg=#4c566a
+hi User3 guifg=#88c0d0 guibg=#4c566a
+hi User4 guibg=#88c0d0 guifg=#4c566a
+hi User5 guifg=#2e3440 guibg=#88c0d0
+hi User6 guifg=#88c0d0 guibg=#81a1c1
+
 set statusline=
 function! ActiveStatusLine ()
     setlocal statusline=
-    setlocal statusline+=%#DiffAdd#                " Change color
+    setlocal statusline+=%#User1#                " Change color
     setlocal statusline+=\ %{WebDevIconsGetFileTypeSymbol()}
     setlocal statusline+=\ %t\ %(%m%)                 " File tail and modified flag
-    setlocal statusline+=%#User1#                " Change color
-    setlocal statusline+=\  
     setlocal statusline+=%#User2#                " Change color
+    setlocal statusline+=\  
+    setlocal statusline+=%#User3#                " Change color
     setlocal statusline+=%{GitBranch()}
     setlocal statusline+=%#StatusLine#                        " Change color
     setlocal statusline+=%=                              " Adds the middle padding
-    setlocal statusline+=%#User3#                " Change color
-    "File type in capitals with icon
+    setlocal statusline+=%#User4#                " Change color
     setlocal statusline+=\  
-    setlocal statusline+=%#User4#
-    setlocal statusline+=\ %Y\ 
     setlocal statusline+=%#User5#
-    setlocal statusline+=\  
+    setlocal statusline+=\ %Y\ 
     setlocal statusline+=%#User6#
+    setlocal statusline+=\  
+    setlocal statusline+=%#User1#
     setlocal statusline+=\ \ %l:%c\ 
 endfunction
 
@@ -179,11 +178,8 @@ function! InactiveStatusLine ()
     setlocal statusline+=\ %t\ %(%m%)                 " File tail and modified flag
     setlocal statusline+=%{GitBranch()}
     setlocal statusline+=%=                              " Adds the middle padding
-    "File type in capitals with icon
     setlocal statusline+=\ %Y\ 
     setlocal statusline+=\ \ %l:%c\ 
-    " set statusline+=%#DiffAdd#                " Change color
-    " set statusline+=\ Ln\ %l:\ %c\                  " Line and Column
 endfunction
 
 augroup statusline
