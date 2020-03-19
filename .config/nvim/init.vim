@@ -10,6 +10,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'joshdick/onedark.vim'
     Plug 'arzg/vim-colors-xcode'
     Plug 'arcticicestudio/nord-vim'
+    Plug 'ntk148v/vim-horizon'
     "Utilities
     Plug 'scrooloose/nerdtree'
     Plug 'mhinz/vim-startify'
@@ -196,6 +197,8 @@ call ActiveStatusLine()
 map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
+map <F3> :Vista<CR>
 
 " Disables automatic commenting on newline:
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
